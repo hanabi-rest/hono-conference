@@ -1,17 +1,32 @@
 ---
-theme: bricks
+# try also 'default' to start simple
+theme: seriph
+# random image from a curated Unsplash collection by Anthony
+# like them? see https://unsplash.com/collections/94734566/slidev
+background: https://cover.sli.dev
+# some information about your slides, markdown enabled
 title: Hono with database on browser playground
+info: |
+  ## Slidev Starter Template
+  Presentation slides for developers.
+
+  Learn more at [Sli.dev](https://sli.dev)
+# apply any unocss classes to the current slide
 class: text-center
+# https://sli.dev/custom/highlighters.html
 highlighter: shiki
+# https://sli.dev/guide/drawing
 drawings:
   persist: false
+# slide transition: https://sli.dev/guide/animations#slide-transitions
 transition: slide-left
+# enable MDC Syntax: https://sli.dev/guide/syntax#mdc-syntax
 mdc: true
 ---
 
-# The Hacks in the Hanabi.REST playground.
+# Hono with database on browser playground
 
-How to develop a Workers Like execution environment in the browser.
+Hono,Web Standards,Web Assembly Possibilities
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
@@ -20,61 +35,48 @@ How to develop a Workers Like execution environment in the browser.
 </div>
 
 <div class="abs-br m-6 flex gap-2">
-  <a href="https://x.com/hanabi_rest" target="_blank" alt="GitHub" 
-    title="Open in Twitter"
+  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
+    <carbon:edit />
+  </button>
+  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="Open in GitHub"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-twitter />
-  </a>
-  <a href="https://hanabi.rest/" target="_blank" alt="GitHub" title="Open in GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-   <twemoji-sparkler />
+    <carbon-logo-github />
   </a>
 </div>
 
----
-layout: items
-cols: 3
----
-
-# Members
-
-::items::
-
-<img src="https://avatars.githubusercontent.com/u/91340399?v=4" alt="yutakobayasi" class="rounded-full border w-36 h-36 mx-auto" />
-<img src="https://avatars.githubusercontent.com/u/71250660?v=4" alt="inaridiy" class="rounded-full border w-36 h-36 mx-auto" />
-<img src="https://avatars.githubusercontent.com/u/67491867?v=4" alt="moons14" class="rounded-full border w-36 h-36 mx-auto" />
-
-<h2 class="text-2xl!">Yuta Kobayashi</h2>
-<h2 class="text-2xl!">Inaridiy</h2>
-<h2 class="text-2xl!">Moons14</h2>
-
-[<carbon-logo-github class="mr-1" />yutakobayashidev](https://github.com/yutakobayashidev)
-
-[<carbon-logo-github class="mr-1" />inaridiy](https://github.com/inaridiy)
-
-[<carbon-logo-github class="mr-1" />moons14](https://github.com/moons-14)
-
-15yo, I like programming, languages, music and space.
-
-18yo, engineer playing at LLM SFC24, seccmp23 inaridiy.eth
-
-~~fake~~ full-stack engineer seccamp 23
+<!--
+The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+-->
 
 ---
 
 # About Hanabi.rest
 
-Build a REST API from prompt and screenshots with LLM.
+Build a REST API from natural language and screenshots using AI, deploy it on Cloudflare Workers, and immediately roll it out globally.
 
-- 🏗️ **Prompt to REST** - Build a REST API from prompt and screenshots with LLM.
-- 🧪 **Browser Playground** - Test and Develop APIs in the browser.
-- 🚀 **One Click Deploy** - Deploy APIs to Cloudflare Workers with a one click.
-- 🎨 **Local Build** - Clone API in your PC by CLI.
+- 🏗️ **Generate API** - Create REST APIs from natural language and screenshots with AI.
+- 🧪 **Live Sandbox** - Test APIs in a secure, live editor environment.
+- 🌍 **Web Standard & Edge** - Generate Hono.js-based APIs, optimized for Edge Runtime.
+- 🔄 **Share & Fork** - Share APIs via URL, allowing public forking and improvement.
+- 📦 **npm Package** - Import the npm package, auto-download type definitions.
+- 💻 **CLI Dump** - Dump APIs locally via CLI for development.
+- 🛠️ **System Integration** - Design APIs with v0.dev, deploy to Cloudflare Workers easily.
 
+<style>
+h1 {
+  background-color: #2B90B6;
+  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
 
-<div class="abs-br m-6 flex gap-2">
-  <img src="https://hanabi.rest/landing.jpeg" alt="Hanabi.rest" class="w-96 border rounded-md shadow-sm" />
-</div>
+<!--
+Here is another comment.
+-->
 
 ---
 
@@ -588,7 +590,7 @@ Double-click on the draggable elements to edit their positions.
 </v-drag>
 ```
 
-<v-drag pos="642,185,253,_,-15">
+<v-drag pos="671,205,253,_,-15">
   <div text-center text-3xl border border-main rounded>
     Double-click me!
   </div>
@@ -602,7 +604,6 @@ src: ./pages/multiple-entries.md
 hide: false
 
 ---
-
 
 ---
 

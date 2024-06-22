@@ -58,7 +58,7 @@ cols: 3
 
 18yo, engineer playing at LLM SFC24, seccmp23 inaridiy.eth
 
-~~fake~~ full-stack engineer seccamp 23
+17yo, full-stack engineer, seccamp23 @moons_dev(X)
 
 ---
 

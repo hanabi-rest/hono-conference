@@ -72,7 +72,7 @@ Build a REST API from prompt and screenshots with LLM.
 - 🎨 **Local Build** - Clone API in your PC by CLI.
 
 <div class="abs-br m-6 flex gap-2">
-  <img src="https://hanabi.rest/landing.jpg" alt="Hanabi.rest" class="w-[480px] border rounded-md shadow-sm" />
+  <img src="https://hanabi.rest/landing.jpg" alt="Hanabi.rest" class="w-[360px] border rounded-md shadow-sm" />
 </div>
 
 ---
@@ -196,7 +196,64 @@ Bundle the npm package **type definitions** into a single file and insert it int
 
 # Hono is Just a Function
 
+<div grid="~ cols-2 gap-2" m="t-2">
 
+HonoJS APIs are simple functions that take a WebRequest and return a Response. When you pass these functions to modern runtimes like Workers or Deno, they work as web servers.
+
+<img src="/hono-overview.svg" alt="Hono" class="w-full mx-auto border rounded-md shadow-sm" />
+
+
+
+</div>
+
+---
+
+# Simple Example
+
+If you write code like this, you can create a runtime that works in the browser!
+
+```ts
+import { Hono } from "hono";
+
+const app = new Hono();
+
+app.get("/teapot", (c) => c.text("I'm a teapot"), 418)
+
+... // Add more routes
+
+const request = new Request(...);
+const response = await app.fetch(request);//Ultra simple
+```
+
+---
+
+# SQLite wasm and D1 Wrapper
+
+The Database is a SQLiteWasm(@sqlite.org/sqlite-wasm) covered with a Wrapper that makes it look like a D1.
+
+```ts
+export class D1Wrapper {
+  private sqlite: Database;
+  private stmt: { sql: string; binds?: SqlValue[] } | null = null;
+
+  constructor(sqlite: Database) {
+    this.sqlite = sqlite;
+  }
+
+  ....
+
+  all() {
+    const results = this.sqlite.exec({
+      sql: this.stmt?.sql || "",
+      bind: this.stmt?.binds || [],
+      returnValue: "resultRows",
+      rowMode: "object",
+    });
+
+    return { results };
+  }
+}
+```
 
 ---
 
@@ -205,28 +262,18 @@ Bundle the npm package **type definitions** into a single file and insert it int
 Binding sqlite-wasm adjusted for D1 to Hono.
 
 ```ts
-import { atom } from "jotai";
-import { Hono } from "hono";
+import SQLite from "@sqlite.org/sqlite-wasm";
 
-export const runtimeAtom = atom<null | Hono>(null);
+const db = new SQLite.oo1.DB();
 
-export const fetchRuntimeAtom = atom(
-  null,
-  async (get, set, request: Request) => {
-    const [app, db] = [get(runtimeAtom), get(dbAtom)];
+app.get("/db", async (c) => {
+  c.env.DB // <= D1Wrapper
+});
 
-    if (!(app && db)) throw new Error("No runtime found");
-
-    const response = await app.fetch(request, {
-      DB: new D1Wrapper(db),
-    });
-
-    set(runtimeResponseAtom, response);
-    set(databaseVersionAtom, (v) => v + 1);
-
-    return response;
-  }
-);
+const request = new Request(...);
+const response = await app.fetch(request, {
+  DB: new D1Wrapper(db),
+});
 ```
 
 ---

@@ -32,6 +32,21 @@ How to develop a Workers Like execution environment in the browser.
 </div>
 
 ---
+
+# About Hanabi.rest
+
+Build a REST API from prompt and screenshots with LLM.
+
+- 🏗️ **Prompt to REST** - Build a REST API from prompt and screenshots with LLM.
+- 🧪 **Browser Playground** - Test and Develop APIs in the browser.
+- 🚀 **One Click Deploy** - Deploy APIs to Cloudflare Workers with a one click.
+- 🎨 **Local Build** - Clone API in your PC by CLI.
+
+<div class="abs-br m-6 flex gap-2">
+  <img src="https://hanabi.rest/landing.jpg" alt="Hanabi.rest" class="w-[360px] border rounded-md shadow-sm" />
+</div>
+
+---
 layout: items
 cols: 3
 ---
@@ -59,21 +74,6 @@ cols: 3
 18yo, engineer playing at LLM SFC24, seccmp23 inaridiy.eth
 
 17yo, engineer, LLM, seccamp23 @moons_dev(X)
-
----
-
-# About Hanabi.rest
-
-Build a REST API from prompt and screenshots with LLM.
-
-- 🏗️ **Prompt to REST** - Build a REST API from prompt and screenshots with LLM.
-- 🧪 **Browser Playground** - Test and Develop APIs in the browser.
-- 🚀 **One Click Deploy** - Deploy APIs to Cloudflare Workers with a one click.
-- 🎨 **Local Build** - Clone API in your PC by CLI.
-
-<div class="abs-br m-6 flex gap-2">
-  <img src="https://hanabi.rest/landing.jpg" alt="Hanabi.rest" class="w-[360px] border rounded-md shadow-sm" />
-</div>
 
 ---
 
@@ -242,9 +242,11 @@ const response = await app.fetch(request);//Ultra simple
 # SQLite wasm and D1 Wrapper
 Execute Hono with D1 in the browser#3
 
-The Database is a SQLiteWasm(@sqlite.org/sqlite-wasm) covered with a Wrapper that makes it look like a D1.
+The Database is a SQLiteWasm covered with a Wrapper that makes it look like a D1.
 
 ```ts
+import type { Database, SqlValue } from "@sqlite.org/sqlite-wasm";
+
 export class D1Wrapper {
   private sqlite: Database;
   private stmt: { sql: string; binds?: SqlValue[] } | null = null;
@@ -253,18 +255,13 @@ export class D1Wrapper {
     this.sqlite = sqlite;
   }
 
-  ....
+  prepare(sql: string) { ... }
 
-  all() {
-    const results = this.sqlite.exec({
-      sql: this.stmt?.sql || "",
-      bind: this.stmt?.binds || [],
-      returnValue: "resultRows",
-      rowMode: "object",
-    });
+  bind(...args: SqlValue[]) { ... }
 
-    return { results };
-  }
+  run() { ... }
+
+  all() { ... }
 }
 ```
 
@@ -355,25 +352,25 @@ However, like DenoLSP, it has the ability to automatically insert type informati
 Typescript Editor#2
 
 When you get a package with `esm.sh`, it will be given the header `x-typescript-types`.
-=> However, if the file is not bundled with a type file like Hono, only the surface layer can be read.
 
 ![x-typescript-types](/x-typescript-types.png)
+---
 
-```ts {1}
-...
-import { Hono } from './hono.d.ts';
-...
-export type { Env, ErrorHandler, Handler, MiddlewareHandler, Next, NotFoundHandler, ValidationTargets, Input, Schema, ToSchema, TypedResponse, } from './types.d.ts';
-...
-export type { Context, ContextVariableMap, ContextRenderer, ExecutionContext } from './context.d.ts';
-...
-export { Hono };
-```
+# x-typescript-types
+Typescript Editor#3
+
+<div class="flex gap-4">
+<img src="/dts.png" alt="x-typescript-types" class=" h-96 rounded-md shadow-sm border![alt text](image.png)" />
+
+<p>
+However, packages with separate type definition files such as Hono can only read the surface layer
+</p>
+</div>
 
 ---
 
 # Bundle .d.ts with cloudflare workers
-Typescript Editor#3
+Typescript Editor#4
 
 Using Typescript's declare module syntax, dts files are bundled using a simple algorithm
 

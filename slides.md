@@ -397,3 +397,7 @@ layout: fact
 
 
 # Thank you for listening!
+
+<div class="abs-br m-6 flex gap-2">
+  <img src="/qrcode_hono-conf.hanabi.rest.png" alt="Hanabi.rest" class="w-[240px] border rounded-md shadow-sm" />
+</div>

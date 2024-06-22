@@ -52,7 +52,7 @@ cols: 3
 
 [<carbon-logo-github class="mr-1" />inaridiy](https://github.com/inaridiy)
 
-[<carbon-logo-github class="mr-1" />moons14](https://github.com/moons-14)
+[<carbon-logo-github class="mr-1" />moons-14](https://github.com/moons-14)
 
 15yo, open government, mental health, and journalism mitoujr23
 

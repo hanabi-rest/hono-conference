@@ -155,6 +155,15 @@ graph TD
 
 Genereated by Claude3.5
 
+
+---
+
+# Appendix: Claude3.5 too awesome!
+
+Claude3.5 made the tech stack diagram shown earlier.
+
+![Claude3.5](/claude-awsome.png)
+
 ---
 layout: cover
 ---

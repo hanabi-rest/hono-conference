@@ -82,53 +82,53 @@ Build a REST API from prompt and screenshots with LLM.
 ```mermaid
 graph TD
     subgraph "Vercel"
-        subgraph "フロントエンド"
-            A[NextJS AppRouter]
+        subgraph "Frontend"
+            A[Next.js App Router]
             B[Jotai]
-            C[Shadcn/UI]
+            C[shadcn/ui]
         end
     end
 
     subgraph "Cloudflare"
-        subgraph "バックエンド"
-            subgraph "メインバックエンド"
-                E[HonoJS]
+        subgraph "Backend"
+            subgraph "Main Backend"
+                E[Hono.js]
                 G[Cloudflare Workers]
                 F[Drizzle ORM]
             end
 
-            subgraph "生成用Durable Object"
+            subgraph "Generation Durable Object"
                 J[Durable Object]
-                O[API生成ロジック]
+                O[API Generation Logic]
             end
 
-            subgraph "ストレージ"
-                H[D1 SQLiteデータベース]
-                I[R2 オブジェクトストレージ]
+            subgraph "Storage"
+                H[D1 SQLite Database]
+                I[R2 Object Storage]
             end
         end
     end
 
-    subgraph "外部サービス"
+    subgraph "External Services"
         N[Claude Haiku LLM]
         K[Clerk]
     end
 
-    subgraph "開発・デプロイ"
+    subgraph "Development & Deployment"
         L[pnpm workspace]
         M[Github Actions]
     end
 
     A --> B
     A --> C
-    G -->|ホスト| E
+    G -->|Hosts| E
     E -->|ORM| F
-    F -->|接続| H
-    G -->|API生成時に呼び出し| J
-    J -->|実行| O
-    G -->|データ保存| I
-    G -->|LLM呼び出し| N
-    J -->|LLM呼び出し| N
+    F -->|Connects to| H
+    G -->|Calls during API generation| J
+    J -->|Executes| O
+    G -->|Stores data| I
+    G -->|Calls LLM| N
+    J -->|Calls LLM| N
     K --> A
     K --> E
     L --> A
@@ -152,6 +152,7 @@ graph TD
     class N,K external;
     class L,M devops;
 ```
+
 Genereated by Claude3.5
 
 ---

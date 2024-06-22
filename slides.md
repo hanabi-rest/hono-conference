@@ -20,7 +20,7 @@ How to develop a Workers Like execution environment in the browser.
 </div>
 
 <div class="abs-br m-6 flex gap-2">
-  <a href="https://x.com/hanabi_rest" target="_blank" alt="GitHub" 
+  <a href="https://x.com/hanabi_rest" target="_blank" alt="GitHub"
     title="Open in Twitter"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-logo-twitter />
@@ -71,10 +71,132 @@ Build a REST API from prompt and screenshots with LLM.
 - 🚀 **One Click Deploy** - Deploy APIs to Cloudflare Workers with a one click.
 - 🎨 **Local Build** - Clone API in your PC by CLI.
 
+<div class="abs-br m-6 flex gap-2">
+  <img src="https://hanabi.rest/landing.jpg" alt="Hanabi.rest" class="w-[480px] border rounded-md shadow-sm" />
+</div>
+
+---
+
+# Tech Stack Overview
+
+```mermaid
+graph TD
+    subgraph "Vercel"
+        subgraph "フロントエンド"
+            A[NextJS AppRouter]
+            B[Jotai]
+            C[Shadcn/UI]
+        end
+    end
+
+    subgraph "Cloudflare"
+        subgraph "バックエンド"
+            subgraph "メインバックエンド"
+                E[HonoJS]
+                G[Cloudflare Workers]
+                F[Drizzle ORM]
+            end
+
+            subgraph "生成用Durable Object"
+                J[Durable Object]
+                O[API生成ロジック]
+            end
+
+            subgraph "ストレージ"
+                H[D1 SQLiteデータベース]
+                I[R2 オブジェクトストレージ]
+            end
+        end
+    end
+
+    subgraph "外部サービス"
+        N[Claude Haiku LLM]
+        K[Clerk]
+    end
+
+    subgraph "開発・デプロイ"
+        L[pnpm workspace]
+        M[Github Actions]
+    end
+
+    A --> B
+    A --> C
+    G -->|ホスト| E
+    E -->|ORM| F
+    F -->|接続| H
+    G -->|API生成時に呼び出し| J
+    J -->|実行| O
+    G -->|データ保存| I
+    G -->|LLM呼び出し| N
+    J -->|LLM呼び出し| N
+    K --> A
+    K --> E
+    L --> A
+    L --> E
+    M --> Vercel
+    M --> Cloudflare
+
+    classDef environment fill:#f0f0f0,stroke:#333,stroke-width:4px;
+    classDef frontend fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef backend fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef durable fill:#ffb,stroke:#333,stroke-width:2px;
+    classDef storage fill:#bff,stroke:#333,stroke-width:2px;
+    classDef external fill:#fdb,stroke:#333,stroke-width:2px;
+    classDef devops fill:#fbb,stroke:#333,stroke-width:2px;
+
+    class Vercel,Cloudflare environment;
+    class A,B,C frontend;
+    class E,F,G backend;
+    class J,O durable;
+    class H,I storage;
+    class N,K external;
+    class L,M devops;
+```
+Genereated by Claude3.5
+
+---
+layout: cover
+---
+
+# Demo
 
 <div class="abs-br m-6 flex gap-2">
-  <img src="https://hanabi.rest/landing.jpeg" alt="Hanabi.rest" class="w-96 border rounded-md shadow-sm" />
+  <img src="/qrcode_hanabi.rest.png" alt="Hanabi.rest" class="w-[320px] border rounded-md shadow-sm" />
 </div>
+
+---
+layout: section
+---
+
+# Today's Topic
+
+::right::
+
+##  Hanabi's Playground
+<img src="/foucus.png" alt="Hanabi.rest" class="w-[480px] border rounded-md shadow-sm" />
+
+---
+layout: section
+---
+
+# Today's Topic
+
+::right::
+
+## Execute Hono with D1 in the browser
+How to run Hono with D1 in your browser
+
+## Build with external packages
+Use esbuild to bundle with **external packages** into a single file
+
+## Typescript Editor
+Bundle the npm package **type definitions** into a single file and insert it into the editor
+
+---
+
+# Hono is Just a Function
+
+
 
 ---
 
@@ -602,7 +724,6 @@ src: ./pages/multiple-entries.md
 hide: false
 
 ---
-
 
 ---
 

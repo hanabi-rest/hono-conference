@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300">
+  <!-- Background -->
+  <rect width="500" height="300" fill="#f0f4f8"/>
+
+  <!-- HonoJS box -->
+  <rect x="175" y="75" width="150" height="150" fill="#e36002" rx="15"/>
+  <text x="250" y="155" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">HonoJS</text>
+
+  <!-- Request arrow -->
+  <path d="M50,150 L175,150" stroke="#333" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="112" y="135" font-family="Arial, sans-serif" font-size="16" fill="#333" text-anchor="middle">Request</text>
+
+  <!-- Response arrow -->
+  <path d="M325,150 L450,150" stroke="#333" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="387" y="135" font-family="Arial, sans-serif" font-size="16" fill="#333" text-anchor="middle">Response</text>
+
+  <!-- Arrowhead definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- Labels -->
+  <text x="112" y="180" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle">Web Standard</text>
+  <text x="112" y="200" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle">Request Object</text>
+
+  <text x="387" y="180" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle">Web Standard</text>
+  <text x="387" y="200" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle">Response Object</text>
+
+  <!-- Function representation -->
+  <rect x="100" y="240" width="300" height="40" fill="#e1e8f0" rx="20"/>
+  <text x="250" y="265" font-family="Arial, sans-serif" font-size="16" fill="#333" text-anchor="middle">Functions as a Request Handler</text>
+
+  <!-- Title -->
+  <text x="250" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333" text-anchor="middle">HonoJS Web Framework</text>
+</svg>

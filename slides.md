@@ -82,6 +82,25 @@ cols: 3
 
 ---
 
+# Why We Made Hanabi
+
+We had all the parts by chance. It looked fun.
+
+- **Hono Playground** - Hono runs in the browser!
+- **SQLite Wasm** - SQLite in the browser!
+- **V0** - V0 awesome!
+- **PoC** - It works surprisingly well with ChatGPT4!
+
+---
+
+# Appendix: V0
+
+V0 is a service created by vercel that allows you to create a UI from a prompt.
+
+![V0](/v0.png)
+
+---
+
 # Tech Stack Overview
 
 ```mermaid

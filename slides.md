@@ -19,13 +19,18 @@ How to develop a Workers Like execution environment in the browser.
   </span>
 </div>
 
-<div class="abs-br m-6 flex gap-2">
-  <a href="https://x.com/hanabi_rest" target="_blank" alt="GitHub"
-    title="Open in Twitter"
+<div class="abs-br m-6 flex gap-1.5">
+  <a href="https://x.com/hanabi_rest" target="_blank" alt="X (Formerly Twitter)"
+    title="Open in X (Formerly Twitter)"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-logo-twitter />
   </a>
-  <a href="https://hanabi.rest/" target="_blank" alt="GitHub" title="Open in GitHub"
+  <a href="https://github.com/hanabi-rest/hono-conference" target="_blank" alt="GitHub"
+    title="Open in Slide Repository"
+    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
+    <carbon-logo-github />
+  </a>
+  <a href="https://hanabi.rest/" target="_blank" alt="Hanabi" title="Open in Hanabi.rest"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
    <twemoji-sparkler />
   </a>

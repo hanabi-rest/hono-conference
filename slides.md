@@ -54,7 +54,7 @@ cols: 3
 
 [<carbon-logo-github class="mr-1" />moons14](https://github.com/moons-14)
 
-15yo, I like programming, languages, music and space.
+15yo, open government, mental health, and journalism mitoujr23
 
 18yo, engineer playing at LLM SFC24, seccmp23 inaridiy.eth
 
